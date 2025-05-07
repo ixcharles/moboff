@@ -3,11 +3,9 @@ package com.umnirium.mc.moboff;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-import java.util.List;
 
 public class MobHandler {
     private final ConfigManager config;
