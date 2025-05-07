@@ -7,7 +7,8 @@
 
 ## Features
 
-- To be added.
+### ✅ Per-Mob Spawn Control
+Disable spawning for individual mobs (e.g., zombies, creepers, cows, etc.) via config.
 
 ## Join our Discord server
 
