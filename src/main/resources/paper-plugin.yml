@@ -1,5 +1,5 @@
 name: MobOff
-version: '1.0.0'
+version: '${version}'
 main: com.umnirium.mc.moboff.MobOff
 description: Full control over mob spawning
 author: ixcharles

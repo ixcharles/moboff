@@ -47,7 +47,9 @@ public class CommandHandler {
                                 Commands.literal("version")
                                         .requires(source -> source.getSender().hasPermission("moboff.command.version"))
                                         .executes(ctx -> {
-                                            ctx.getSource().getSender().sendRichMessage("<gold>[MobOff]</gold> <white>Version 1.0.0</white>");
+                                            String version = plugin.getPluginMeta().getVersion();
+
+                                            ctx.getSource().getSender().sendRichMessage("<gold>[MobOff]</gold> <white>Version " + version + "</white>");
 
                                             return Command.SINGLE_SUCCESS;
                                         })

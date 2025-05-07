@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.umnirium.mc.moboff"
-version = "1.0.0"
+version = project.property("version") as String
 
 repositories {
     maven {
@@ -20,4 +20,14 @@ dependencies {
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+}
+
+tasks.named<ProcessResources>("processResources") {
+    filesMatching("paper-plugin.yml") {
+        expand("version" to project.property("version"))
+    }
+
+    filesMatching("plugin.yml") {
+        expand("version" to project.property("version"))
+    }
 }
