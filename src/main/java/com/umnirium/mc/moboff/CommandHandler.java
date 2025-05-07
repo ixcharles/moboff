@@ -9,9 +9,11 @@ import java.util.List;
 @SuppressWarnings("UnstableApiUsage")
 public class CommandHandler {
     private final ConfigManager config;
+    private final MobHandler mobHandler;
 
-    public CommandHandler(ConfigManager config) {
+    public CommandHandler(ConfigManager config, MobHandler mobHandler) {
         this.config = config;
+        this.mobHandler = mobHandler;
     }
 
     public void register(Commands commands, JavaPlugin plugin) {
@@ -24,6 +26,8 @@ public class CommandHandler {
                                         .executes(ctx -> {
                                                     config.reloadConfig();
                                                     ctx.getSource().getSender().sendRichMessage(config.getMessage("reload-success"));
+
+                                                    mobHandler.clearDisabledMobs();
 
                                                     return Command.SINGLE_SUCCESS;
                                                 }

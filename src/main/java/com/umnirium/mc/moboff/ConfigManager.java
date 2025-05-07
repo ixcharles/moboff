@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.util.List;
 
 public class ConfigManager {
     static final MobOff plugin = new MobOff();
@@ -34,5 +35,9 @@ public class ConfigManager {
 
     public String getMessage(String path) {
         return messagesConfig.getString(path);
+    }
+
+    public List<String> getDisabledMobs() {
+        return plugin.getConfig().getStringList("disabled-mobs");
     }
 }

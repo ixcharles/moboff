@@ -4,6 +4,7 @@ import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.plugin.lifecycle.event.LifecycleEventManager;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -17,11 +18,16 @@ public class MobOff extends JavaPlugin {
         saveDefaultConfig();
 
         ConfigManager config = new ConfigManager();
+        MobHandler mobHandler = new MobHandler(config);
+
+        mobHandler.clearDisabledMobs();
+
+        Bukkit.getPluginManager().registerEvents(new SpawnListener(config), this);
 
         LifecycleEventManager<@NotNull Plugin> manager = this.getLifecycleManager();
         manager.registerEventHandler(LifecycleEvents.COMMANDS, event -> {
             final Commands commands = event.registrar();
-            new CommandHandler(config).register(commands, this);
+            new CommandHandler(config, mobHandler).register(commands, this);
         });
 
         getComponentLogger().info(mm.deserialize("<aqua>Plugin successfully enabled</aqua>"));
