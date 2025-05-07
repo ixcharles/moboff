@@ -1,0 +1,7 @@
+name: MobOff
+version: '1.0.0'
+main: com.umnirium.mc.moboff.MobOff
+description: Full control over mob spawning
+author: ixcharles
+website: https://github.com/ixcharles
+api-version: '1.21.5'

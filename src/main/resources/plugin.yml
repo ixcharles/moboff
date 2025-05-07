@@ -1,0 +1,27 @@
+name: MobOff
+version: '1.0.0'
+main: com.umnirium.mc.moboff.MobOff
+description: Full control over mob spawning
+author: ixcharles
+website: https://github.com/ixcharles
+api-version: '1.21.5'
+permissions:
+  moboff.command.*:
+    description: Gives access to all MobOff commands
+    children:
+      moboff.command.reload: true
+      moboff.command.support: true
+      moboff.command.version: true
+      moboff.command.help: true
+  moboff.command.reload:
+      description: Reloads configuration
+      default: op
+  moboff.command.support:
+    description: Support me with a coffee
+    default: true
+  moboff.command.version:
+    description: Check plugin version
+    default: op
+  moboff.command.help:
+    description: Get commands
+    default: op
